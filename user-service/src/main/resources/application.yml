@@ -1,0 +1,64 @@
+spring:
+  # Database Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/userdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # HikariCP Connection Pool Settings
+    hikari:
+      # Leave empty so HikariCP uses fast, native JDBC4 Connection.isValid() checks
+      connection-test-query: 
+      
+      # How long (in ms) to wait for a connection validation test to succeed before timing out
+      validation-timeout: 3000
+      
+      # How long (in ms) your application code will wait to borrow a connection before throwing an exception
+      connection-timeout: 30000
+      
+      # CRITICAL FOR MYSQL: Retires connections after 30 mins (1,800,000 ms) 
+      # This prevents "Communications link failure" errors caused by MySQL dropping idle connections
+      max-lifetime: 1800000
+      
+      # How long a connection can sit idle in the pool before being retired (10 mins)
+      idle-timeout: 600000
+      
+      # Minimum number of idle connections kept in the pool
+      minimum-idle: 5
+      
+      # Maximum number of simultaneous connections allowed in the pool
+      maximum-pool-size: 10
+      
+      # Name of the pool (useful for debugging logs)
+      pool-name: MySqlHikariPool
+
+  # Spring Data JPA & Hibernate Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    
+    # Validates database tables on application startup. 
+    # Ensures the app won't boot if the DB is offline or schema is wrong.
+    hibernate:
+      ddl-auto: update
+      
+    properties:
+      hibernate:
+        ddl-auto: update
+        # Formats the SQL in the logs neatly
+        format_sql: true
+        # Uses the improved identifier naming strategy
+        physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+        
+    # Logs SQL statements to the console (turn off in strict production environments)
+    show-sql: true
+
+# Logging Configuration to monitor connection behaviors
+logging:
+  level:
+    root: INFO
+    # Uncomment the line below if you need to debug HikariCP connection pooling steps
+    # com.zaxxer.hikari: DEBUG
+
+server:
+  port: 8081

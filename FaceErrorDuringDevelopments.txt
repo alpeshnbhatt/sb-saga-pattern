@@ -1,0 +1,22 @@
+Ambiguous mapping. Cannot map '/customers' method 
+Failed to convert value of type 'java.lang.String' to required type 'java.util.UUID';
+Request processing failed: java.util.NoSuchElementException: No value present] with root cause
+
+"status": 405,
+    "error": "Method Not Allowed",
+	
+Identifier of entity 'alp.com.entity.Customer' must be manually assigned before calling 'persist()'	  --->   @GeneratedValue(strategy = GenerationType.UUID)
+
+Duplicate entry 'alpesh' for key 'UK_bepynu3b6l8k2ppuq6b33xfxc'
+
+"status": 400,
+    "error": "Bad Request",
+	
+org.hibernate.PropertyValueException: not-null property references a null or transient value : alp.com.entity.Product.name  ---> needs standard Java getters and setters—
+
+[Field 'id' doesn't have a default value] --> @GeneratedValue(strategy = GenerationType.UUID)
+
+
+Error creating bean with name 'orderController' defined in file [G:\AlpeshInterviewPreparation\githubrepos\saga-pattern\order-service\bin\main\alp\com\controller\OrderController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'orderService' defined in file [G:\AlpeshInterviewPreparation\githubrepos\saga-pattern\order-service\bin\main\alp\com\service\OrderService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'orderRepository' defined in alp.com.repository.OrderRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class alp.com.entity.OrderEntity
+--->@Entity 
+
