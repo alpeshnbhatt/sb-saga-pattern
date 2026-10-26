@@ -1,10 +1,48 @@
 server:
   port: 8761
+
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: false   # The server itself does not register
+    fetch-registry: false  
 
 spring:
   application:
-    name: api-gatway
+    name: api-gateway
+cloud:
+  gateway:
+    discovery:
+      locator:
+        enabled: true
+        lower-case-service-id: true
+
+    globalcors:
+      cors-configurations:
+        '[/**]':
+          allowedOrigins: "*"
+          allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+
+    routes:
+      - id: customer-server
+        uri: lb://CUSTOMER-SERVER
+        predicates:
+          - Path=/customer-server/**
+        filters:
+          - StripPrefix=1
+      - id: order-server
+        uri: lb://ORDER-SERVER
+        predicates:
+          - Path=/order-server/**
+        filters:
+          - StripPrefix=1
+      - id: inventory-server
+        uri: lb://INVENTORY-SERVER
+        predicates:
+          - Path=/inventory-server/**
+        filters:
+          - StripPrefix=1
