@@ -20,3 +20,4 @@ org.hibernate.PropertyValueException: not-null property references a null or tra
 Error creating bean with name 'orderController' defined in file [G:\AlpeshInterviewPreparation\githubrepos\saga-pattern\order-service\bin\main\alp\com\controller\OrderController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'orderService' defined in file [G:\AlpeshInterviewPreparation\githubrepos\saga-pattern\order-service\bin\main\alp\com\service\OrderService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'orderRepository' defined in alp.com.repository.OrderRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class alp.com.entity.OrderEntity
 --->@Entity 
 
+implementation() for arguments [org.springframework.cloud:spring-cloud-starter-gateway] 
