@@ -1,0 +1,8 @@
+.gradle/
+**/build/
+**/bin/
+**/.settings/
+
+# File-specific rules (removed trailing slashes)
+**/.project
+**/.classpath
