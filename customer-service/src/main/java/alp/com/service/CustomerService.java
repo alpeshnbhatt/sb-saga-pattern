@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import alp.com.entity.Customer;
+import alp.com.entity.CustomerEntity;
 import alp.com.repository.CustomerRepository;
 
 @Service
@@ -17,11 +17,11 @@ public class CustomerService {
 		this.customerRepository = customerRepository;
 	}
 
-	public Customer createCustomer(Customer customer) {
+	public CustomerEntity createCustomer(CustomerEntity customer) {
 		return customerRepository.save(customer);
 	}
 
-	public Optional<Customer> findCustomer(UUID customerId) {
+	public Optional<CustomerEntity> findCustomer(UUID customerId) {
 		return customerRepository.findById(customerId);
 	}
 }

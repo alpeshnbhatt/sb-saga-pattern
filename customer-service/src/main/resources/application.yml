@@ -8,7 +8,7 @@ eureka:
 
 spring:
   application:
-   name: customer-server
+   name: customer-service
   # Database Configuration
   datasource:
     url: jdbc:mysql://localhost:3306/userdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true

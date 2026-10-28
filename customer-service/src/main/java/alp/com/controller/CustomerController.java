@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import alp.com.entity.Customer;
+import alp.com.entity.CustomerEntity;
 import alp.com.service.CustomerService;
 
 @RestController
@@ -24,14 +24,14 @@ public class CustomerController {
 	}
 
 	@PostMapping
-	public Customer createCustomer(@RequestBody Customer customer) {
+	public CustomerEntity createCustomer(@RequestBody CustomerEntity customer) {
 		return customerService.createCustomer(customer);
 	}
 
 	@GetMapping("/{customerId}")
-	public Customer findById(@PathVariable("customerId") UUID customerId) {
-		Optional<Customer> customer = customerService.findCustomer(customerId);
-		return customer.isEmpty() ? new Customer() : customer.get();
+	public CustomerEntity findById(@PathVariable("customerId") UUID customerId) {
+		Optional<CustomerEntity> customer = customerService.findCustomer(customerId);
+		return customer.isEmpty() ? new CustomerEntity() : customer.get();
 	}
 
 	@GetMapping("/test1")

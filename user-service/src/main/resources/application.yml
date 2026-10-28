@@ -1,10 +1,6 @@
 server:
    port: 8081
 
-eureka:
-  client:
-   service-url:
-    defaultZone: http://localhost:8761/eureka/
 
 
 
@@ -60,14 +56,11 @@ spring:
         format_sql: true
         # Uses the improved identifier naming strategy
         physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-        
-    # Logs SQL statements to the console (turn off in strict production environments)
+     # Logs SQL statements to the console (turn off in strict production environments)
     show-sql: true
-
 # Logging Configuration to monitor connection behaviors
 logging:
   level:
     root: INFO
-    # Uncomment the line below if you need to debug HikariCP connection pooling steps
-    # com.zaxxer.hikari: DEBUG
+
 
